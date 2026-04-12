@@ -19,29 +19,37 @@ Each challenge has two parts:
 │   ├── overview.md      # Summary table and sprint logistics
 │   └── 01-10            # Individual challenge specifications
 ├── data/                # AMC datasets (CSV) and codebook
-│   └── README.md        # Dataset descriptions and column reference
-└── examples/            # Starter code for loading and exploring data
+│   ├── README.md        # Dataset descriptions and column reference
+│   └── codebook/        # Full variable documentation (86-page PDF)
+├── examples/            # Starter code for loading and exploring data
+├── SETUP.md             # Python, Git, and environment setup guide
+└── requirements.txt     # Python package dependencies
 ```
 
 ## Getting Started
 
+**New to Python or Git?** See [`SETUP.md`](SETUP.md) for installation and setup instructions.
+
 1. Browse [`challenges/overview.md`](challenges/overview.md) for the full list of challenges
 2. Read the [`data/README.md`](data/README.md) for dataset descriptions
 3. Pick a challenge and review its specification in `challenges/`
-4. Use the starter code in `examples/` to load the data
+4. Run `pip install -r requirements.txt` to install dependencies
+5. Use the starter code in `examples/` to load the data
+
+**Note:** The CSV files use `latin-1` encoding. See [`data/README.md`](data/README.md) for details.
 
 ## Datasets
 
-The AMC Arms Control Agreement Database (V2) contains structured data on 127 international arms control agreements, covering verification mechanisms, compliance architectures, weapons categories, and participation patterns.
+The AMC Arms Control Agreement Database (V2) contains structured data on international arms control agreements, covering verification mechanisms, compliance architectures, weapons categories, and participation patterns.
 
 | Dataset | Rows | Description |
 |---------|------|-------------|
-| `agreement_info` | 127 | Core agreement metadata, dates, participation, compliance mechanism flags |
-| `vercom` | 98 | Verified compliance mechanisms (inspectors, access, triggers) |
-| `demcom` | ~300 | Demonstrated compliance mechanisms |
-| `consultation` | ~150 | Consultation mechanisms |
-| `weapons_facilities` | ~300 | Weapons types, lifecycle restrictions, categories |
-| `agreement_associations` | — | Links between related agreements |
+| `agreement_info` | 128 | Core agreement metadata, dates, participation, compliance mechanism flags |
+| `vercom` | 99 | Verified compliance mechanisms (inspectors, access, triggers) |
+| `demcom` | 136 | Demonstrated compliance mechanisms |
+| `consultation` | 159 | Consultation mechanisms |
+| `weapons_facilities` | 434 | Weapons types, lifecycle restrictions, categories |
+| `agreement_associations` | 137 | Links between related agreements |
 
 Full codebook: [`data/codebook/amc_agreementdatasets_codebook.pdf`](data/codebook/amc_agreementdatasets_codebook.pdf)
 
@@ -57,7 +65,7 @@ All teams should produce a cleaned, documented dataset and statistical analysis 
 
 ## Data Access
 
-**This repository is private.** The AMC datasets are shared for sprint participants only. Do not redistribute without permission from the Alva Myrdal Centre for Nuclear Disarmament, Uppsala University.
+The AMC datasets are shared for sprint participants only. Do not redistribute without permission from the Alva Myrdal Centre for Nuclear Disarmament, Uppsala University.
 
 ## Contact
 

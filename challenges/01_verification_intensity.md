@@ -16,7 +16,7 @@ Using the AMC datasets, construct a measure of verification intensity and compar
 
 **Datasets to start with:** `agreement_info`, `vercom`, `weapons_facilities`
 
-**Tip:** The `summary_category` field in `weapons_facilities` gives you weapon classification. Link datasets using `agreement_id`.
+**Tip:** The `item` field in `weapons_facilities` describes what each agreement regulates (e.g., "Nuclear Weapons", "Chemical Weapons", "Small Arms and Light Weapons"). Strip trailing whitespace with `.str.strip()` before matching. Note that `summary_category` is a binary flag (0 = real item, 1 = summary row added by AMC), not a weapon type label. Link datasets using `agreement_id`.
 
 ## AI Governance Extension (Optional)
 

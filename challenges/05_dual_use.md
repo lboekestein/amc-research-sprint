@@ -18,7 +18,7 @@ Examine how treaties restrict items across lifecycle phases using the ban and re
 
 **Datasets to start with:** `weapons_facilities`, `agreement_info`
 
-**Tip:** The `ban_*` and `restriction_*` columns in `weapons_facilities` cover development, production, and transfer phases. The `item` and `subcategory` fields describe what is being regulated.
+**Tip:** The `ban_*` and `restriction_*` columns in `weapons_facilities` cover development, production, and transfer phases. The `item` field describes what is being regulated (e.g., "Fissile Material", "Chemical Precursors"). Strip trailing whitespace with `.str.strip()` before matching.
 
 ## AI Governance Extension (Optional)
 

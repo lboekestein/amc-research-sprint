@@ -16,7 +16,7 @@ Build a time-series of verification sophistication across the 80+ years covered 
 
 **Datasets to start with:** `agreement_info`
 
-**Tip:** `agreement_info` contains `year` alongside binary flags and counts for each compliance mechanism type (`consultation_mechanism`, `demonstrated_compliance_mechanism`, `verified_compliance_mechanism` and their `_nr` variants). This challenge can go far with just this one dataset.
+**Tip:** `agreement_info` contains `year` alongside binary flags for each compliance mechanism type (`consultation_mechanism`, `demonstrated_compliance_mechanism`, `verified_compliance_mechanism`). Count variants are available for demonstrated (`demonstrated_compliance_mechanism_nr`) and verified (`verified_compliance_mechanism_nr`) mechanisms. This challenge can go far with just this one dataset.
 
 ## AI Governance Extension (Optional)
 

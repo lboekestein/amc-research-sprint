@@ -5,20 +5,25 @@ Load the AMC datasets, explore their structure, and run a basic analysis.
 
 Requirements: pandas, matplotlib
     pip install pandas matplotlib
+
+Note: The CSVs use latin-1 encoding. Always pass encoding='latin-1' to read_csv().
+The agreement_associations file uses utf-8-sig encoding (it has a BOM header).
 """
 
 import pandas as pd
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from pathlib import Path
 
 # --- Load datasets ---
 data_dir = Path(__file__).parent.parent / "data"
 
-info = pd.read_csv(data_dir / "amcdata_agreement_info_V2.csv")
-vercom = pd.read_csv(data_dir / "amcdata_vercom_V2.csv")
-demcom = pd.read_csv(data_dir / "amcdata_demcom_V2.csv")
-consultation = pd.read_csv(data_dir / "amcdata_consultation_V2.csv")
-weapons = pd.read_csv(data_dir / "amcdata_weapons_facilities_V2.csv")
+info = pd.read_csv(data_dir / "amcdata_agreement_info_V2.csv", encoding='latin-1')
+vercom = pd.read_csv(data_dir / "amcdata_vercom_V2.csv", encoding='latin-1')
+demcom = pd.read_csv(data_dir / "amcdata_demcom_V2.csv", encoding='latin-1')
+consultation = pd.read_csv(data_dir / "amcdata_consultation_V2.csv", encoding='latin-1')
+weapons = pd.read_csv(data_dir / "amcdata_weapons_facilities_V2.csv", encoding='latin-1')
 
 print("=== Dataset sizes ===")
 print(f"Agreement info:    {len(info)} agreements")
@@ -48,20 +53,22 @@ decade_summary = info.groupby('decade').agg({
 print(decade_summary.round(2))
 print()
 
-# --- Example: Weapon categories ---
-print("=== Weapon categories in dataset ===")
-print(weapons['summary_category'].value_counts())
+# --- Example: Weapon items in dataset ---
+# Note: summary_category is a binary flag (0 = real item, 1 = summary category
+# added by AMC for aggregation). The actual weapon descriptions are in the
+# 'item' column. Strip trailing whitespace before doing string matching.
+weapons['item'] = weapons['item'].str.strip()
+
+print("=== Weapon items (top 15 most common) ===")
+print(weapons['item'].value_counts().head(15))
 print()
 
 # --- Example: Join datasets ---
-print("=== Example join: Verification mechanisms with weapon categories ===")
-merged = vercom.merge(info[['agreement_id', 'agreement_name', 'year']],
+print("=== Example join: Verification mechanisms with agreement metadata ===")
+merged = vercom.merge(info[['agreement_id', 'title_short', 'year']],
                       on='agreement_id', how='left')
-# Get unique weapon categories per agreement
-weapon_cats = weapons.groupby('agreement_id')['summary_category'].first().reset_index()
-merged = merged.merge(weapon_cats, on='agreement_id', how='left')
 print(f"Merged dataset: {len(merged)} rows")
-print(merged[['agreement_name', 'year', 'summary_category',
+print(merged[['title_short', 'year',
               'verified_compliance_mechanism_type']].head(10))
 print()
 
@@ -88,5 +95,4 @@ axes[1].tick_params(axis='x', rotation=45)
 
 plt.tight_layout()
 plt.savefig('overview_plots.png', dpi=150, bbox_inches='tight')
-plt.show()
 print("Saved: overview_plots.png")

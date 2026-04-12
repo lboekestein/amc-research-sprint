@@ -16,7 +16,7 @@ Construct a "ladder of verification intrusiveness" from the access variables in 
 
 **Datasets to start with:** `vercom`, `agreement_info`, `weapons_facilities`
 
-**Tip:** `vercom` has binary flags for `*_area_access`, `*_facility_access`, `*_item_access`, and `*_item_section_access`, with accompanying specification fields. These give you a natural four-level scale.
+**Tip:** `vercom` has binary flags for `*_area_access`, `*_facility_access`, `*_item_access`, and `*_item_section_access`, with accompanying specification fields. These give you a natural intrusiveness scale. Note that `item_section_access` is very rare in the data (only 1 of 99 mechanisms), so in practice the scale is three levels with a single outlier at the deepest level.
 
 ## AI Governance Extension (Optional)
 

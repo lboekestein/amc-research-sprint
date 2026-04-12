@@ -16,7 +16,7 @@ Compare nuclear and non-nuclear agreements across multiple dimensions of governa
 
 **Datasets to start with:** `agreement_info`, `vercom`, `weapons_facilities`
 
-**Tip:** Use `summary_category` in `weapons_facilities` to create a nuclear/non-nuclear flag. Then compare groups across the compliance and verification variables in `agreement_info` and `vercom`.
+**Tip:** To identify nuclear agreements, check the `item` field in `weapons_facilities` for nuclear-related terms (e.g., filter rows containing "Nuclear" in the `item` column, after stripping trailing whitespace with `.str.strip()`). Note that `summary_category` is a binary flag (0 = real item, 1 = summary row added by AMC), not a weapon type label. Then compare groups across the compliance and verification variables in `agreement_info` and `vercom`.
 
 ## AI Governance Extension (Optional)
 

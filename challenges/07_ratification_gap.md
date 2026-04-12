@@ -18,7 +18,7 @@ You might also explore timing: how long does it take for agreements to move from
 
 **Datasets to start with:** `agreement_info`
 
-**Tip:** Key variables include `nr_signatory_states`, `nr_states_parties_total`, `nr_states_parties_ratification`, `adoption_date`, and `entry_into_force_date`. Note that the gap between signing and ratifying is typically driven by domestic political procedures rather than agreement content, so interpret carefully.
+**Tip:** Key variables include `nr_signatory_states` (~80% populated), `nr_states_parties_total` (~83%), `nr_states_parties_ratification` (~70%), `adoption_date` (~34%, so timing analysis will be limited to a subset), and `entry_into_force_date` (~77%). Note that the gap between signing and ratifying is typically driven by domestic political procedures rather than agreement content, so interpret carefully.
 
 ## AI Governance Extension (Optional)
 

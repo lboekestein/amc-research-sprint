@@ -16,7 +16,7 @@ Construct an ordinal scale of compliance architecture intensity and examine how 
 
 **Datasets to start with:** `agreement_info`, `weapons_facilities`
 
-**Tip:** `agreement_info` has binary flags for `consultation_mechanism`, `demonstrated_compliance_mechanism`, and `verified_compliance_mechanism`. Combine with `summary_category` from `weapons_facilities` via `agreement_id`.
+**Tip:** `agreement_info` has binary flags for `consultation_mechanism`, `demonstrated_compliance_mechanism`, and `verified_compliance_mechanism`. To compare across weapon categories, join with `weapons_facilities` via `agreement_id` and use the `item` field (after `.str.strip()`) to classify agreements by weapon type. Note that `summary_category` is a binary flag (0 = real item, 1 = summary row), not a weapon category label.
 
 ## AI Governance Extension (Optional)
 
