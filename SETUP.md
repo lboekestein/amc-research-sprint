@@ -121,8 +121,6 @@ git push
 
 MATLAB `.m` files, Jupyter `.ipynb` notebooks, R `.R` scripts, and Python `.py` files are all welcome.
 
-If you're not comfortable with Git, you can share your files via the sprint Slack channel.
-
 ## Common issues
 
 | Problem | Fix |
