@@ -13,7 +13,7 @@ See the [original challenge description](../challenges/02_verification_participa
 
 ### Replication instructions
 
-Install the necessary requirements using 
-```bash
-pip install -r requirements.txt
+Install the necessary requirements the following command in R:
+```r
+renv::restore()
 ```

@@ -1,0 +1,8 @@
+# R project files
+.RData
+.RHistory
+.Rproj.user/
+.Rprofile
+
+# Environment
+renv/*
