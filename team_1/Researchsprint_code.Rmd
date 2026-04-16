@@ -629,7 +629,8 @@ We can then explore the relation between verification intensity and the number o
 
 ```{r}
 merged_data |>
-  filter(extended_verification_intensity > 2) |>
+  #in presentation, only plotted cases with verification intensity over 2
+  #filter(extended_verification_intensity > 2) |>
   filter(era == "Post Cold War" | era == "Cold War") |>
     ggplot(aes(
     x = extended_verification_intensity, 
@@ -669,7 +670,8 @@ And the same for the ratification percentage:
 
 ```{r}
 merged_data |>
-  filter(extended_verification_intensity > 2) |>
+  #in presentation, only plotted cases with verification intensity over 2
+  #filter(extended_verification_intensity > 2) |>
   filter(era == "Post Cold War" | era == "Cold War") |>
     ggplot(aes(
     x = extended_verification_intensity, 
